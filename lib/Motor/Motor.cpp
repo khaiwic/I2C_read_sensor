@@ -1,8 +1,7 @@
 #include <Arduino.h>
-#include "Motor.h"
-#include "config.h"
-#include "Kinematics.h"
+#include <Kinematics.h>
 #include <Config.h>
+#include "Motor.h"
 
 int encoder_1_val = 0;
 int encoder_2_val = 0;
@@ -41,7 +40,7 @@ void IRAM_ATTR read_encoder_B(){
     }
 }
 //chua dung gia tri tuyet doi
-
+//source lay tu repo khai_motor
 void reset(){
     encoder_1_val = 0;
     encoder_2_val = 0;
@@ -50,28 +49,28 @@ void reset(){
 void go(int speedA, int speedB){
     if(speedA > 0){
         if(speedB < 0){
-            ledcWrite(MOTOR::channela, speedA);
-            ledcWrite(MOTOR::channelb, -speedB);
+            ledcWrite(motor::channela, speedA);
+            ledcWrite(motor::channelb, -speedB);
         }
         else{
-            ledcWrite(MOTOR::channela, speedA);
-            ledcWrite(MOTOR::channelb, speedB);
+            ledcWrite(motor::channela, speedA);
+            ledcWrite(motor::channelb, speedB);
         }
     }
     else if (speedA < 0){
         if(speedB > 0){
-            ledcWrite(MOTOR::channela, -speedA);
-            ledcWrite(MOTOR::channelb, speedB);
+            ledcWrite(motor::channela, -speedA);
+            ledcWrite(motor::channelb, speedB);
         }
         else{
-            ledcWrite(MOTOR::channela, -speedA);
-            ledcWrite(MOTOR::channelb, -speedB);
+            ledcWrite(motor::channela, -speedA);
+            ledcWrite(motor::channelb, -speedB);
         }
     }
     else if(speedA == 0){
         if(speedB == 0){
-            ledcWrite(MOTOR::channela, 0);
-            ledcWrite(MOTOR::channelb, 0);
+            ledcWrite(motor::channela, 0);
+            ledcWrite(motor::channelb, 0);
         }
     }
 }

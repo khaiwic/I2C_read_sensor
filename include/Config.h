@@ -14,6 +14,8 @@ namespace motor{
     //config tb6612 fng input pin
     constexpr int16_t channela = 0;
     constexpr int16_t channelb = 1;
+    constexpr int16_t freq = 20000;
+    constexpr int16_t resolution = 10;
     constexpr int16_t pwma = 0;
     constexpr int16_t pwmb = 0;
     constexpr int16_t in1_a = 0;
