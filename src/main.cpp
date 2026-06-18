@@ -6,6 +6,8 @@
 #include "Motor.h"
 #include "MPU_sensor.h"
 
+Sensor_6050 ssr6050;
+
 void setup(){
   Serial.begin(115200); delay(3000);
   while(!Serial.available()){
@@ -30,6 +32,16 @@ void setup(){
 
   //MPU_sensor setup
   Wire.begin(MPU::sda, MPU::scl, 400000);
+  ssr6050.initSensor_6050();
+  ssr6050.CalibrateGrypo();
+  ssr6050.waitForInitialSerialSetup();
+}
+void loop() {
+  if (Serial.available() > 0) {
+    ssr6050.handleSerialCommand(Serial.readStringUntil('\n'));
+  }
 
-
+  if (initialReady) {
+    ssr6050.updateAndPrintMPU();
+  }
 }

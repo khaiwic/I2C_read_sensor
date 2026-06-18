@@ -30,6 +30,13 @@ namespace MPU{
     constexpr int32_t sda = 0;
     constexpr int32_t scl = 0;
     constexpr int16_t freq_mpu = 500;
+    constexpr uint8_t MPU6050_ADDR = 0x68;//  dia chi nguon
+    constexpr uint8_t REG_PWR_MGMT_1 = 0x6B; // thanh ghi quan ly nguon
+    constexpr uint8_t REG_ACCEL_CONFIG = 0x1C;  // thanh cau hinh gia toc
+    constexpr uint8_t REG_GYRO_CONFIG = 0x1B; // thanh cau hinh con quay hoi chuyen
+    constexpr uint8_t REG_ACCEL_XOUT_H = 0x3B; // thanh ghi du lieu bat dau
+
+    constexpr float GYRO_SCALE = 0.0f;
 }
 namespace PID{
     //PID controller setup
