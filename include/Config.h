@@ -29,6 +29,7 @@ namespace MPU{
     //config MPU_6050 comunicate by I2C
     constexpr int32_t sda = 0;
     constexpr int32_t scl = 0;
+    constexpr int16_t freq_mpu = 500;
 }
 namespace PID{
     //PID controller setup

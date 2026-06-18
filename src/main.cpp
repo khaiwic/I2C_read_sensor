@@ -29,6 +29,7 @@ void setup(){
   Serial.println("Khoi dong xong banh b"); delay(100);
 
   //MPU_sensor setup
+  Wire.begin(MPU::sda, MPU::scl, 400000);
 
 
 }
