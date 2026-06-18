@@ -7,9 +7,10 @@
 #include <Kinematics.h>
 
 //declare values 
-float gyroBiasX = 0.0f;
-float gyroBiasY = 0.0f;
-float gyroBiasZ = 0.0f;
+extern float gyroBiasX;
+extern float gyroBiasY;
+extern float gyroBiasZ;
+extern volatile bool initialReady;
 
 
 
@@ -47,10 +48,11 @@ public:
     Sensor_6050();
     bool initSensor_6050();
     void CalibrateGrypo();
-    bool readMPURaw(MPURaw data);
+    bool readMPURaw(MPURaw &data);
     void waitForInitialSerialSetup();
     void handleSerialCommand(String b);
     void updateAndPrintMPU();
+    bool setInitialState(const InitialState &state);
     int16_t ReadInt16();
 };
 #endif

@@ -8,6 +8,7 @@
 
 Sensor_6050 ssr6050;
 
+// cppcheck-suppress unusedFunction
 void setup(){
   Serial.begin(115200); delay(3000);
   while(!Serial.available()){
@@ -36,6 +37,7 @@ void setup(){
   ssr6050.CalibrateGrypo();
   ssr6050.waitForInitialSerialSetup();
 }
+// cppcheck-suppress unusedFunction
 void loop() {
   if (Serial.available() > 0) {
     ssr6050.handleSerialCommand(Serial.readStringUntil('\n'));

@@ -1,7 +1,7 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 #include "Kinematics.h"
-#include "config.h"
+#include "Config.h"
 
 extern int encoder_1_val;
 extern int encoder_2_val;
